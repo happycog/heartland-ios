@@ -120,7 +120,7 @@
     [request setValue:[@([jsonData length]) stringValue] forHTTPHeaderField:@"Content-Length"];
     [request setHTTPBody:jsonData];    
     
-    [[NSURLSession sharedSession] dataTaskWithRequest:request
+    NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request
                                     completionHandler:^(NSData *data, NSURLResponse *urlResponse, NSError *error) {
                                if (error != nil){
                                    
@@ -194,6 +194,7 @@
                                }
                                
                            }];
+    [dataTask resume];
 }
 
 - (NSString*) dataOrDefault:(NSString*)data
