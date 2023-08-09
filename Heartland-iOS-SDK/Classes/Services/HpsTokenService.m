@@ -194,6 +194,7 @@
                                }
                                
                            }];
+    [dataTask resume];
 }
 
 - (NSString*) dataOrDefault:(NSString*)data
